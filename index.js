@@ -48,16 +48,12 @@ client.once('ready', async () => {
       rolesFilter: []
     }))
 
-    const result = {
-      guilds
-    }
-
     const filename = `export_${Date.now()}.json`
     const filepath = path.join(__dirname, filename)
 
-    fs.writeFileSync(filepath, JSON.stringify(result, null, 2))
+    fs.writeFileSync(filepath, JSON.stringify(guilds, null, 2))
 
-    console.log(`Saved guild and channel information to ${filename}`)
+    console.log(`Saved as ${filename}`)
   } catch (error) {
     console.error('Error fetching servers or channels:', error)
   }
